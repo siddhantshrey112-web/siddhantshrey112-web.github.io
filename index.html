@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siddhant Shrey — Software &amp; AI/ML Engineering</title>
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --surface: #121214;
+      --surface-hover: #18181b;
+      --border: #242429;
+      --border-hover: #3f3f46;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --subtle: #71717a;
+      --btn-bg: #fafafa;
+      --btn-text: #09090b;
+      --status: #10b981;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding: 0 22px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo span {
+      color: var(--subtle);
+      font-weight: 400;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 72px 0 56px;
+    }
+    .meta-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 24px;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--status);
+    }
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 600px;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn {
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+    }
+    .btn-primary:hover {
+      background: #e4e4e7;
+    }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+    }
+
+    /* Sections */
+    section {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--subtle);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    /* Project Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .card:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+    }
+    .card-index {
+      font-size: 0.78rem;
+      color: var(--subtle);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .card h3 {
+      font-size: 1.12rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .tag {
+      font-size: 0.75rem;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .card-link {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-link:hover {
+      text-decoration: underline;
+    }
+    .card-meta {
+      color: var(--subtle);
+      font-size: 0.85rem;
+    }
+
+    /* Stack */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 44px 0 64px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .footer-email {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .copy-msg {
+      color: var(--status);
+      font-size: 0.85rem;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">Siddhant Shrey <span>/ dev</span></a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="meta-bar mono">
+        <span class="status-dot"></span>
+        <span>BENGALURU, IN &bull; CSE (AI &amp; ML)</span>
+      </div>
+      <h1>Building fast web tools, Python backends, and 3D simulations.</h1>
+      <p class="subtitle">
+        I'm Siddhant Shrey, a first-year Computer Science &amp; Engineering undergraduate at Global Academy of Technology. I focus on clean architecture, lightweight full-stack systems, and interactive browser graphics.
+      </p>
+      <div class="cta-row">
+        <a href="#work" class="btn btn-primary">View Selected Work</a>
+        <a href="https://github.com/siddhantshrey112-web" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Profile ↗</a>
+      </div>
+    </header>
+
+    <section id="work">
+      <span class="section-label mono">01 / Selected Work</span>
+      <div class="grid">
+        <article class="card">
+          <div>
+            <span class="card-index mono">PROJECT 01</span>
+            <h3>Live Device Sync</h3>
+            <p>
+              Zero-dependency full-stack application that synchronizes notes in real time across mobile and tablet clients over local Wi-Fi with persistent JSON storage and REST endpoints.
+            </p>
+            <div class="tags mono">
+              <span class="tag">Python 3</span>
+              <span class="tag">REST API</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">JSON</span>
+            </div>
+          </div>
+          <a class="card-link" href="https://github.com/siddhantshrey112-web/live-device-sync" target="_blank" rel="noopener">Source Repository ↗</a>
+        </article>
+
+        <article class="card">
+          <div>
+            <span class="card-index mono">PROJECT 02</span>
+            <h3>3D Quantum &amp; Propulsion Sim</h3>
+            <p>
+              Interactive browser-based 3D presentation modeling Cooper pairs, Meissner levitation, and superconducting magnetic sails for interstellar spacecraft propulsion.
+            </p>
+            <div class="tags mono">
+              <span class="tag">Three.js</span>
+              <span class="tag">WebGL</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+          <span class="card-meta mono">Interactive WebGL Visualization</span>
+        </article>
+
+        <article class="card">
+          <div>
+            <span class="card-index mono">PROJECT 03</span>
+            <h3>Multi-Device Transaction Sync</h3>
+            <p>
+              Real-time state and database synchronization prototype engineered with a FastAPI backend to keep live records updated concurrently across multiple screens.
+            </p>
+            <div class="tags mono">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Full-Stack</span>
+            </div>
+          </div>
+          <span class="card-meta mono">Full-Stack Architecture</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="stack">
+      <span class="section-label mono">02 / Technical Stack</span>
+      <div class="skills mono">
+        <span class="skill">Python 3</span>
+        <span class="skill">FastAPI</span>
+        <span class="skill">C Programming</span>
+        <span class="skill">HTML5 &amp; CSS3</span>
+        <span class="skill">JavaScript (ES6+)</span>
+        <span class="skill">Three.js</span>
+        <span class="skill">REST APIs</span>
+        <span class="skill">Git &amp; GitHub</span>
+        <span class="skill">Linux / Termux</span>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div>
+        <div class="footer-title">Direct Contact</div>
+        <div class="footer-email mono">siddhant.shrey112@gmail.com</div>
+      </div>
+      <div>
+        <button class="btn btn-secondary" onclick="copyEmail()">Copy Email Address</button>
+        <span id="copied" class="copy-msg mono"></span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText('siddhant.shrey112@gmail.com');
+      const el = document.getElementById('copied');
+      el.textContent = 'Copied';
+      setTimeout(() => { el.textContent = ''; }, 2000);
+    }
+  </script>
+</body>
+</html>

@@ -161,14 +161,14 @@
     /* Project Cards */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: 1fr;
       gap: 16px;
     }
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 24px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -185,7 +185,7 @@
       display: block;
     }
     .card h3 {
-      font-size: 1.12rem;
+      font-size: 1.2rem;
       font-weight: 600;
       letter-spacing: -0.01em;
       margin-bottom: 10px;
@@ -193,14 +193,15 @@
     }
     .card p {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.95rem;
+      max-width: 640px;
       margin-bottom: 20px;
     }
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
     .tag {
       font-size: 0.75rem;
@@ -213,7 +214,7 @@
     .card-link {
       color: var(--text);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 500;
       display: inline-flex;
       align-items: center;
@@ -221,10 +222,6 @@
     }
     .card-link:hover {
       text-decoration: underline;
-    }
-    .card-meta {
-      color: var(--subtle);
-      font-size: 0.85rem;
     }
 
     /* Stack */
@@ -313,22 +310,6 @@
           </div>
           <a class="card-link" href="https://github.com/siddhantshrey112-web/live-device-sync" target="_blank" rel="noopener">Source Repository ↗</a>
         </article>
-
-        <article class="card">
-          <div>
-            <span class="card-index mono">PROJECT 02</span>
-            <h3>Multi-Device Transaction Sync</h3>
-            <p>
-              Real-time state and database synchronization engine built with a FastAPI backend to keep live records updated concurrently across multiple screens.
-            </p>
-            <div class="tags mono">
-              <span class="tag">Python</span>
-              <span class="tag">FastAPI</span>
-              <span class="tag">Full-Stack</span>
-            </div>
-          </div>
-          <span class="card-meta mono">Full-Stack Architecture</span>
-        </article>
       </div>
     </section>
 
@@ -336,7 +317,6 @@
       <span class="section-label mono">02 / Technical Stack</span>
       <div class="skills mono">
         <span class="skill">Python 3</span>
-        <span class="skill">FastAPI</span>
         <span class="skill">C Programming</span>
         <span class="skill">HTML5 &amp; CSS3</span>
         <span class="skill">JavaScript (ES6+)</span>
